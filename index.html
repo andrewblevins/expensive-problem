@@ -22,6 +22,11 @@
             --hero-overlay: #0a0a0a;
             --hero-gradient: none;
             --outcomes-bullet: #0a0a0a;
+            --accent-bg: #0a0a0a;
+            --accent-heading: #fff;
+            --accent-text: rgba(255,255,255,0.85);
+            --accent-card-bg: rgba(255,255,255,0.05);
+            --accent-border: rgba(255,255,255,0.3);
         }
 
         [data-theme="dark"] {
@@ -38,6 +43,11 @@
             --hero-overlay: transparent;
             --hero-gradient: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 40%, transparent 100%);
             --outcomes-bullet: #fff;
+            --accent-bg: #f0f0f0;
+            --accent-heading: #0a0a0a;
+            --accent-text: #1a1a1a;
+            --accent-card-bg: rgba(0,0,0,0.03);
+            --accent-border: rgba(0,0,0,0.2);
         }
 
         * {
@@ -63,9 +73,9 @@
             position: fixed;
             top: 24px;
             right: 24px;
-            background: rgba(128,128,128,0.2);
-            border: 1px solid rgba(128,128,128,0.3);
-            color: var(--text);
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: #fff;
             padding: 10px 16px;
             border-radius: 6px;
             font-size: 0.875rem;
@@ -77,7 +87,7 @@
         }
 
         .theme-toggle:hover {
-            background: rgba(128,128,128,0.3);
+            background: rgba(255,255,255,0.25);
         }
 
         .hero {
@@ -190,10 +200,11 @@
         }
 
         .examples {
-            background: #0a0a0a;
+            background: var(--accent-bg);
             padding: 48px 24px;
             margin: 28px 0;
             max-width: none;
+            transition: background 0.3s;
         }
 
         .examples-inner {
@@ -202,7 +213,7 @@
         }
 
         .examples h2 {
-            color: #fff;
+            color: var(--accent-heading);
         }
 
         .examples ul {
@@ -214,10 +225,11 @@
 
         .examples li {
             padding: 16px 20px;
-            background: rgba(255,255,255,0.05);
-            border-left: 3px solid rgba(255,255,255,0.3);
-            color: rgba(255,255,255,0.85);
+            background: var(--accent-card-bg);
+            border-left: 3px solid var(--accent-border);
+            color: var(--accent-text);
             border-radius: 0 4px 4px 0;
+            transition: background 0.3s, border-color 0.3s, color 0.3s;
         }
 
         .outcomes {
@@ -270,10 +282,11 @@
         }
 
         .pricing {
-            background: #0a0a0a;
+            background: var(--accent-bg);
             border-radius: 8px;
             padding: 48px;
             margin: 40px 0;
+            transition: background 0.3s;
         }
 
         .pricing h3 {
@@ -281,27 +294,31 @@
             font-size: 1.25rem;
             font-weight: 400;
             margin-bottom: 16px;
-            color: #fff;
+            color: var(--accent-heading);
             letter-spacing: 0.02em;
+            transition: color 0.3s;
         }
 
         .price {
             font-size: 2.5rem;
             font-weight: 500;
-            color: #fff;
+            color: var(--accent-heading);
             margin-bottom: 8px;
+            transition: color 0.3s;
         }
 
         .price-detail {
-            color: rgba(255,255,255,0.7);
+            color: var(--accent-text);
             font-size: 0.95rem;
             margin-bottom: 32px;
+            transition: color 0.3s;
         }
 
         .pricing-tier + .pricing-tier {
             margin-top: 32px;
             padding-top: 32px;
-            border-top: 1px solid rgba(255,255,255,0.15);
+            border-top: 1px solid var(--accent-border);
+            transition: border-color 0.3s;
         }
 
         .cta {
