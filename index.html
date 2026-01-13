@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg: #fafafa;
+            --text: #1a1a1a;
+            --text-secondary: #1a1a1a;
+            --heading: #0a0a0a;
+            --link: #0a0a0a;
+            --link-underline: rgba(0,0,0,0.3);
+            --link-underline-hover: rgba(0,0,0,0.8);
+            --btn-bg: #0a0a0a;
+            --btn-text: #fff;
+            --btn-hover: #333;
+            --hero-overlay: #0a0a0a;
+            --hero-gradient: none;
+            --outcomes-bullet: #0a0a0a;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0a0a0a;
+            --text: #e0e0e0;
+            --text-secondary: #c0c0c0;
+            --heading: #fff;
+            --link: #fff;
+            --link-underline: rgba(255,255,255,0.3);
+            --link-underline-hover: rgba(255,255,255,0.8);
+            --btn-bg: #fff;
+            --btn-text: #0a0a0a;
+            --btn-hover: #e0e0e0;
+            --hero-overlay: transparent;
+            --hero-gradient: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 40%, transparent 100%);
+            --outcomes-bullet: #fff;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -20,10 +52,32 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #fafafa;
-            color: #1a1a1a;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.7;
             font-size: 17px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            background: rgba(128,128,128,0.2);
+            border: 1px solid rgba(128,128,128,0.3);
+            color: var(--text);
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(128,128,128,0.3);
         }
 
         .hero {
@@ -46,7 +100,13 @@
             left: 0;
             right: 0;
             padding: 48px 40px;
-            background: #0a0a0a;
+            background: var(--hero-overlay);
+            transition: background 0.3s;
+        }
+
+        [data-theme="dark"] .hero-overlay {
+            padding: 80px 40px 60px;
+            background: var(--hero-gradient);
         }
 
         .hero-title {
@@ -84,10 +144,11 @@
             font-family: 'Instrument Serif', Georgia, serif;
             font-size: clamp(1.5rem, 3vw, 2rem);
             font-style: italic;
-            color: #1a1a1a;
+            color: var(--text);
             line-height: 1.5;
             text-wrap: balance;
             text-align: center;
+            transition: color 0.3s;
         }
 
         section {
@@ -101,13 +162,15 @@
             font-size: 1.75rem;
             font-weight: 400;
             margin-bottom: 24px;
-            color: #0a0a0a;
+            color: var(--heading);
             letter-spacing: 0.01em;
+            transition: color 0.3s;
         }
 
         p {
             margin-bottom: 20px;
-            color: #1a1a1a;
+            color: var(--text);
+            transition: color 0.3s;
         }
 
         p:last-child {
@@ -115,15 +178,15 @@
         }
 
         a {
-            color: #0a0a0a;
+            color: var(--link);
             text-decoration: underline;
-            text-decoration-color: rgba(0,0,0,0.3);
+            text-decoration-color: var(--link-underline);
             text-underline-offset: 2px;
-            transition: text-decoration-color 0.2s;
+            transition: text-decoration-color 0.2s, color 0.3s;
         }
 
         a:hover {
-            text-decoration-color: rgba(0,0,0,0.8);
+            text-decoration-color: var(--link-underline-hover);
         }
 
         .examples {
@@ -167,13 +230,16 @@
             padding-left: 28px;
             margin-bottom: 14px;
             position: relative;
+            color: var(--text);
+            transition: color 0.3s;
         }
 
         .outcomes li::before {
             content: '—';
             position: absolute;
             left: 0;
-            color: #0a0a0a;
+            color: var(--outcomes-bullet);
+            transition: color 0.3s;
         }
 
         .outcomes li:last-child {
@@ -252,14 +318,14 @@
 
         .cta p {
             font-size: 1.1rem;
-            color: #1a1a1a;
+            color: var(--text);
             margin-bottom: 28px;
         }
 
         .btn {
             display: inline-block;
-            background: #0a0a0a;
-            color: #fff;
+            background: var(--btn-bg);
+            color: var(--btn-text);
             padding: 16px 36px;
             border-radius: 6px;
             text-decoration: none;
@@ -269,12 +335,15 @@
         }
 
         .btn:hover {
-            background: #333;
+            background: var(--btn-hover);
+            text-decoration: none;
         }
 
     </style>
 </head>
 <body>
+    <button class="theme-toggle" onclick="toggleTheme()">Dark mode</button>
+
     <header class="hero">
         <img src="hero.jpg" alt="Building engulfed in flames at night">
         <div class="hero-overlay">
@@ -384,6 +453,27 @@
         <a href="https://tally.so/r/YOUR_FORM_ID" class="btn">Fill out the form</a>
     </section>
 
-    
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const btn = document.querySelector('.theme-toggle');
+            if (html.getAttribute('data-theme') === 'light') {
+                html.setAttribute('data-theme', 'dark');
+                btn.textContent = 'Light mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.setAttribute('data-theme', 'light');
+                btn.textContent = 'Dark mode';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? 'Light mode' : 'Dark mode';
+        }
+    </script>
 </body>
 </html>
