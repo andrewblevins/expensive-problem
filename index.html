@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expensive Problem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 48px 40px;
+            background: #0a0a0a;
+        }
+
+        .hero-title {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 400;
+            line-height: 1.1;
+            max-width: 900px;
+            color: #fff;
+        }
+
+        .hero-subtitle {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+            margin-top: 12px;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .tagline {
+            padding: 32px 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .tagline p {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-style: italic;
+            color: #1a1a1a;
+            line-height: 1.5;
+            text-wrap: balance;
+            text-align: center;
+        }
+
+        section {
+            padding: 28px 24px;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 1.75rem;
+            font-weight: 400;
+            margin-bottom: 24px;
+            color: #0a0a0a;
+            letter-spacing: 0.01em;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        a {
+            color: #0a0a0a;
+            text-decoration: underline;
+            text-decoration-color: rgba(0,0,0,0.3);
+            text-underline-offset: 2px;
+            transition: text-decoration-color 0.2s;
+        }
+
+        a:hover {
+            text-decoration-color: rgba(0,0,0,0.8);
+        }
+
+        .examples {
+            background: #0a0a0a;
+            padding: 48px 24px;
+            margin: 28px 0;
+            max-width: none;
+        }
+
+        .examples-inner {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .examples h2 {
+            color: #fff;
+        }
+
+        .examples ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            gap: 16px;
+        }
+
+        .examples li {
+            padding: 16px 20px;
+            background: rgba(255,255,255,0.05);
+            border-left: 3px solid rgba(255,255,255,0.3);
+            color: rgba(255,255,255,0.85);
+            border-radius: 0 4px 4px 0;
+        }
+
+        .outcomes {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 28px 0;
+        }
+
+        .outcomes li {
+            padding-left: 28px;
+            margin-bottom: 14px;
+            position: relative;
+        }
+
+        .outcomes li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: #0a0a0a;
+        }
+
+        .outcomes li:last-child {
+            margin-bottom: 0;
+        }
+
+        .bios {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+            margin-top: 32px;
+        }
+
+        .bio {
+            text-align: center;
+        }
+
+        .bio img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .bio p {
+            font-size: 0.95rem;
+        }
+
+        .pricing {
+            background: #0a0a0a;
+            border-radius: 8px;
+            padding: 48px;
+            margin: 40px 0;
+        }
+
+        .pricing h3 {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 16px;
+            color: #fff;
+            letter-spacing: 0.02em;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .price-detail {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+        }
+
+        .pricing-tier + .pricing-tier {
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .cta {
+            text-align: center;
+            padding: 28px 24px;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            margin-bottom: 28px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #0a0a0a;
+            color: #fff;
+            padding: 16px 36px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <img src="hero.jpg" alt="Building engulfed in flames at night">
+        <div class="hero-overlay">
+            <h1 class="hero-title">Expensive Problem</h1>
+            <p class="hero-subtitle">A weekend workshop</p>
+        </div>
+    </header>
+
+    <div class="tagline">
+        <p>Bring your most expensive problem. Leave with clarity, energy, and a way forward.</p>
+    </div>
+
+    <!-- 1. Let them self-identify -->
+    <section>
+        <h2>Who is this for?</h2>
+        <p>You're high-functioning, creative, and entrepreneurial. You think from left field. You live for transformation. You've had sudden breakthroughs before, and you know it can happen again. You believe it's possible to shift your perspective in a weekend.</p>
+        <p>You are confident in your capacity to take action in your personal life or work. However, right now you're stuck. It's frustrating. Annoying. It drags at your attention. Sometimes it keeps you awake at night. You know that if you can move through it, life will feel different. You'll be free to act, to create, and to lead.</p>
+    </section>
+
+    <!-- 2. Define the concept -->
+    <section>
+        <h2>What's an expensive problem?</h2>
+        <p>It's the kind of challenge that costs you dearly—not only in money, but in time, energy, and the way it weighs on your mind.</p>
+        <p>You'll bring an expensive problem to a small group of peers. You may define the problem in terms of its financial cost, its personal cost in terms of time and energy, or both.</p>
+    </section>
+
+    <!-- 3. Make it concrete -->
+    <div class="examples">
+        <div class="examples-inner">
+            <h2>Example Scenarios</h2>
+            <ul>
+                <li>You're at a crossroads between multiple career paths. Each could change your life, but the paths feel incommensurate.</li>
+                <li>You've built a thriving project—a consultancy, say—but you're trapped in an hourly income model. You know that freeing your time from your income would allow you to do higher-impact work.</li>
+                <li>You've built a company where the product is you. You'd like to exit while the company continues to thrive, but you're afraid that if you leave, the whole thing will collapse.</li>
+                <li>As a founder, you've suffered a blow to your reputation. You need to find ways to rebuild trust quickly and with integrity.</li>
+                <li>You want a life partner, but the path feels blocked by culture, timing, or something you can't quite name.</li>
+                <li>You and your cofounder are close friends and strong partners. However, you have an internal conflict with them that feels significant and you can't find a way to talk with them about it.</li>
+                <li>You have a fantastic idea but you don't know how to turn it into reality.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 4. The transformation -->
+    <section>
+        <h2>What you'll walk away with</h2>
+        <p>On Sunday evening, you will have:</p>
+        <ul class="outcomes">
+            <li>The ability to see your problem from multiple perspectives—fluid uncertainty, adult developmental psychology, systematization and automation, metarationality.</li>
+            <li>Framings of your situation that you could not have reached on your own.</li>
+            <li>Clarity of direction and renewed energy.</li>
+            <li>Concrete next steps and the confidence to take them.</li>
+        </ul>
+        <p>This is not about abstract ideas. It's about dismantling what's keeping you stuck, and being inspired to take practical action on the other side.</p>
+    </section>
+
+    <!-- 5. Logistics -->
+    <section>
+        <h2>How the weekend works</h2>
+        <p>The workshop consists of four sessions across two days, with a carefully selected group of no more than twenty participants.</p>
+        <p>You engage in intensive group exploration, learn frameworks you can apply immediately, and work directly on your specific problem. The process is rigorous, creative, and sometimes surprising. Spacious breaks are built in so that insights land and conversations deepen.</p>
+        <p>You will leave not only with clarity on your own problem, but with new ways of seeing that extend far beyond it.</p>
+    </section>
+
+    <!-- 6. Credibility -->
+    <section>
+        <h2>Who we are</h2>
+        <p>We guide leaders and creators through turning points in their lives and work.</p>
+        <div class="bios">
+            <div class="bio">
+                <img src="charlie.png" alt="Charlie">
+                <p>Charlie runs an <a href="https://charlieawbery.substack.com/p/advisory-relationships">executive coaching business</a> for entrepreneurs in tech and AI.</p>
+            </div>
+            <div class="bio">
+                <img src="andrew-cropped.png" alt="Andrew">
+                <p>Andrew co-creates <a href="https://andrewshadeblevins.com/coaching.html">developmental mentorships</a> with founders, engineers, and designers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Address concern -->
+    <section>
+        <h2>Confidentiality</h2>
+        <p>The workshop is a safe place to explore difficult, painful, or sensitive situations. At the outset, you'll sign a binding agreement not to publicly share other participants' problems without their consent.</p>
+    </section>
+
+    <!-- 8. Price -->
+    <section>
+        <h2>Cost</h2>
+        <div class="pricing">
+            <div class="pricing-tier">
+                <h3>Workshop</h3>
+                <div class="price">$2,500</div>
+                <div class="price-detail">The weekend event plus a Zoom call before and after</div>
+            </div>
+            <div class="pricing-tier">
+                <h3>Workshop + Individual Sessions</h3>
+                <div class="price">$5,000</div>
+                <div class="price-detail">The weekend event plus three individual sessions with Charlie &amp; Andrew</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. CTA -->
+    <section class="cta">
+        <h2>Apply</h2>
+        <p>Interested? Tell us about yourself and your expensive problem. We'll follow up if it seems like a good fit.</p>
+        <a href="https://tally.so/r/YOUR_FORM_ID" class="btn">Fill out the form</a>
+    </section>
+
+    
+</body>
+</html>
