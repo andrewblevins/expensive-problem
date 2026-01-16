@@ -6,7 +6,7 @@
     <title>Expensive Problem</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #fafafa;
@@ -61,11 +61,12 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.7;
-            font-size: 17px;
+            font-size: 19px;
+            letter-spacing: 0.01em;
             transition: background 0.3s, color 0.3s;
         }
 
@@ -77,12 +78,12 @@
             border: 1px solid rgba(255,255,255,0.25);
             color: #fff;
             padding: 10px 16px;
-            border-radius: 6px;
+            border-radius: 2px;
             font-size: 0.875rem;
             cursor: pointer;
             backdrop-filter: blur(10px);
             transition: all 0.2s;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Instrument Sans', sans-serif;
             z-index: 1000;
         }
 
@@ -129,7 +130,7 @@
         }
 
         .hero-subtitle {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             font-size: 0.95rem;
             font-weight: 400;
             letter-spacing: 0.05em;
@@ -146,7 +147,7 @@
 
         .tagline {
             padding: 32px 24px;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -156,7 +157,6 @@
             font-style: italic;
             color: var(--text);
             line-height: 1.5;
-            text-wrap: balance;
             text-align: center;
             transition: color 0.3s;
         }
@@ -169,7 +169,7 @@
 
         h2 {
             font-family: 'Instrument Serif', Georgia, serif;
-            font-size: 1.75rem;
+            font-size: 2.4rem;
             font-weight: 400;
             margin-bottom: 24px;
             color: var(--heading);
@@ -210,7 +210,7 @@
         [data-theme="dark"] .examples {
             max-width: 720px;
             margin: 28px auto;
-            border-radius: 8px;
+            border-radius: 2px;
         }
 
         .examples-inner {
@@ -234,7 +234,7 @@
             background: var(--accent-card-bg);
             border-left: 3px solid var(--accent-border);
             color: var(--accent-text);
-            border-radius: 0 4px 4px 0;
+            border-radius: 2px;
             transition: background 0.3s, border-color 0.3s, color 0.3s;
         }
 
@@ -289,7 +289,7 @@
 
         .pricing {
             background: var(--accent-bg);
-            border-radius: 8px;
+            border-radius: 2px;
             padding: 48px;
             margin: 40px 0;
             transition: background 0.3s;
@@ -350,7 +350,7 @@
             background: var(--btn-bg);
             color: var(--btn-text);
             padding: 16px 36px;
-            border-radius: 6px;
+            border-radius: 2px;
             text-decoration: none;
             font-size: 1rem;
             font-weight: 500;
@@ -445,8 +445,8 @@
     <!-- 2. Define the concept -->
     <section>
         <h2>What's an expensive problem?</h2>
-        <p>It's the kind of challenge that costs you dearly—not only in money, but in time, energy, and the way it weighs on your mind.</p>
-        <p>You'll bring an expensive problem to a small group of peers. You may define the problem in terms of its financial cost, its personal cost in terms of time and energy, or both.</p>
+        <p>It's a problem that is costing you dearly. So much that you lose focus, or can't sleep at night. The cost may be money, or something you can't put a number on—time, peace of mind, energy. Whatever it is, the price is too high to ignore.</p>
+        <p>You'll bring your expensive problem to a small group of peers and work on it together.</p>
     </section>
 
     <!-- 3. Make it concrete -->
@@ -454,13 +454,12 @@
         <div class="examples-inner">
             <h2>Example Scenarios</h2>
             <ul>
-                <li>You're at a crossroads between multiple career paths. Each could change your life, but the paths feel incommensurate.</li>
-                <li>You've built a thriving project—a consultancy, say—but you're trapped in an hourly income model. You know that freeing your time from your income would allow you to do higher-impact work.</li>
+                <li>You're burning out but the company can't afford for you to slow down.</li>
+                <li>Your company has hit a ceiling. You know the next stage of growth requires a fundamentally different strategy, or a different version of you as a leader. You can't see which, or what that looks like.</li>
                 <li>You've built a company where the product is you. You'd like to exit while the company continues to thrive, but you're afraid that if you leave, the whole thing will collapse.</li>
-                <li>As a founder, you've suffered a blow to your reputation. You need to find ways to rebuild trust quickly and with integrity.</li>
-                <li>You want a life partner, but the path feels blocked by culture, timing, or something you can't quite name.</li>
-                <li>You and your cofounder are close friends and strong partners. However, you have an internal conflict with them that feels significant and you can't find a way to talk with them about it.</li>
-                <li>You have a fantastic idea but you don't know how to turn it into reality.</li>
+                <li>You and your cofounder are close friends and strong partners. However, you have a conflict with them that feels significant and you can't find a way to talk with them about it.</li>
+                <li>The company is succeeding, but you're not sure you're the right person to lead it anymore. You can't tell if that's clarity or fear.</li>
+                <li>You're facing a decision between paths that can't be combined. Each one means giving up something real. But staying put isn't an option either.</li>
             </ul>
         </div>
     </div>
@@ -470,8 +469,8 @@
         <h2>What you'll walk away with</h2>
         <p>On Sunday evening, you will have:</p>
         <ul class="outcomes">
-            <li>The ability to see your problem from multiple perspectives—fluid uncertainty, adult developmental psychology, systematization and automation, metarationality.</li>
-            <li>Framings of your situation that you could not have reached on your own.</li>
+            <li>The ability to see your problem from multiple perspectives—adult developmental psychology, systematization and automation, structural analysis of interactional power, metarationality.</li>
+            <li>A way of seeing your situation that you could not have reached on your own.</li>
             <li>Clarity of direction and renewed energy.</li>
             <li>Concrete next steps and the confidence to take them.</li>
         </ul>
@@ -481,8 +480,8 @@
     <!-- 5. Logistics -->
     <section>
         <h2>How the weekend works</h2>
-        <p>The workshop takes place <strong>July 31st–August 1st, 2026</strong> in New York City. Over two days, you'll participate in four sessions with a carefully selected group of no more than twenty participants.</p>
-        <p>You'll engage in intensive group exploration, learn frameworks you can apply immediately, and work directly on your specific problem. The process is rigorous, creative, and sometimes surprising. Spacious breaks are built in so that insights land and conversations deepen.</p>
+        <p>The workshop takes place <strong>July 31st–August 1st, 2026</strong> in New York City. Over two days, you'll participate in four sessions in a peer group of no more than twenty participants.</p>
+        <p>You'll engage in intensive group exploration, learn frameworks you can apply immediately, and work directly on your specific problem. The process is rigorous and sometimes surprising. Spacious breaks are built in so that insights land and conversations deepen.</p>
         <p>You will leave not only with clarity on your own problem, but with new ways of seeing that extend far beyond it.</p>
     </section>
 
@@ -492,7 +491,7 @@
         <p>We guide leaders and creators through turning points in their lives and work.</p>
         <div class="bios">
             <div class="bio">
-                <img src="charlie.png" alt="Charlie">
+                <img src="Charlie July 2024 02.png" alt="Charlie">
                 <p>Charlie runs an <a href="https://charlieawbery.substack.com/p/advisory-relationships">executive coaching business</a> for entrepreneurs in tech and AI.</p>
             </div>
             <div class="bio">
