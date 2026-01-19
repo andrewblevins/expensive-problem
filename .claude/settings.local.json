@@ -9,7 +9,9 @@
       "Bash(git push)",
       "Bash(git remote set-url:*)",
       "Bash(git branch:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(git show:*)",
+      "Bash(git fetch:*)"
     ]
   }
 }
