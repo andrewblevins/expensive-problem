@@ -96,7 +96,12 @@
             line-height: 1.7;
             font-size: 19px;
             letter-spacing: 0.01em;
-            transition: background 0.3s, color 0.3s;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        body.loaded {
+            opacity: 1;
         }
 
 
@@ -540,5 +545,10 @@
         <a href="https://tally.so/r/eqrBBJ" class="btn">Fill out the form</a>
     </section>
 
+    <script>
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
 </body>
 </html>
