@@ -20,7 +20,7 @@
 
         body {
             font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #fafafa;
+            background: #f4ebe1;
             color: #1a1a1a;
             line-height: 1.7;
             font-size: 19px;
@@ -126,7 +126,7 @@
         }
 
         .examples-section {
-            padding: 48px 24px;
+            padding: 48px 24px 68px 24px;
         }
 
         .examples-list {
@@ -258,8 +258,36 @@
 
         /* Light section - always light mode from "What you'll walk away with" onwards */
         .light-section {
-            background: #fafafa;
+            background: #f4ebe1;
             color: #1a1a1a;
+            position: relative;
+        }
+
+        /* Soft smudge at the top edge */
+        .light-section::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to bottom, transparent 0%, #f4ebe1 100%);
+            pointer-events: none;
+        }
+
+        /* Paper texture - subtle warm grain */
+        .light-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.035;
+            pointer-events: none;
+            background:
+                repeating-radial-gradient(circle at 17% 32%, rgba(139,119,101,0.08) 0px, transparent 1px),
+                repeating-radial-gradient(circle at 83% 67%, rgba(139,119,101,0.08) 0px, transparent 1px),
+                repeating-radial-gradient(circle at 31% 78%, rgba(139,119,101,0.06) 0px, transparent 1px),
+                repeating-radial-gradient(circle at 69% 21%, rgba(139,119,101,0.06) 0px, transparent 1px);
+            background-size: 3px 3px, 4px 4px, 5px 5px, 6px 6px;
         }
 
         .light-section h2,
@@ -296,6 +324,7 @@
 
         .light-section .pricing-tier {
             background: #f0f0f0;
+            border-left: 3px solid rgba(139, 119, 101, 0.35);
         }
 
         .light-section .pricing h3 {
@@ -327,21 +356,22 @@
             color: rgba(255,255,255,0.85);
         }
 
-        /* Gradient transition between sections */
-        .section-transition {
-            height: 150px;
-            background: linear-gradient(to bottom, #0a0a0a 0%, #fafafa 100%);
-        }
 
         /* Dark section - always dark mode */
         .dark-section {
             background: #0a0a0a;
             color: #e0e0e0;
+            position: relative;
         }
+
 
         .dark-section h2,
         .dark-section h3 {
             color: #fff;
+        }
+
+        .danger {
+            color: #c41e1e;
         }
 
         .dark-section p,
@@ -430,7 +460,7 @@
         </header>
 
         <div class="tagline">
-            <p>Bring your most expensive problem. Leave with clarity, energy, and a way forward.</p>
+            <p>Bring your most expensive problem. Leave with clarity, energy, and&nbsp;a&nbsp;way&nbsp;forward.</p>
         </div>
 
         <section>
@@ -440,7 +470,7 @@
         </section>
 
         <section>
-            <h2>What's an expensive problem?</h2>
+            <h2>What's an <span class="danger">expensive problem?</span></h2>
             <p>It's a problem that is costing you dearly. So much that you lose focus, or can't sleep at night. The cost may be money, or something you can't put a number on—time, peace of mind, energy. Whatever it is, the price is too high to ignore.</p>
             <p>You'll bring your expensive problem to a small group of peers and work on it together.</p>
         </section>
@@ -458,7 +488,6 @@
         </section>
     </div>
 
-    <div class="section-transition"></div>
 
     <!-- ==================== LIGHT SECTION: The Resolution Space ==================== -->
     <div class="light-section">
