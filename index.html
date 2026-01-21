@@ -70,27 +70,6 @@
             transition: background 0.3s, color 0.3s;
         }
 
-        .theme-toggle {
-            position: fixed;
-            top: 24px;
-            right: 24px;
-            background: rgba(255,255,255,0.15);
-            border: 1px solid rgba(255,255,255,0.25);
-            color: #fff;
-            padding: 10px 16px;
-            border-radius: 2px;
-            font-size: 0.875rem;
-            cursor: pointer;
-            backdrop-filter: blur(10px);
-            transition: all 0.2s;
-            font-family: 'Instrument Sans', sans-serif;
-            z-index: 1000;
-        }
-
-        .theme-toggle:hover {
-            background: rgba(255,255,255,0.25);
-        }
-
         .hero {
             position: relative;
             height: 85vh;
@@ -110,14 +89,8 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 48px 40px;
-            background: var(--hero-overlay);
-            transition: background 0.3s;
-        }
-
-        [data-theme="dark"] .hero-overlay {
-            padding: 80px 40px 60px;
-            background: var(--hero-gradient);
+            padding: 80px 40px 48px;
+            background: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 40%, transparent 100%);
         }
 
         .hero-title {
@@ -155,10 +128,16 @@
             font-family: 'Instrument Serif', Georgia, serif;
             font-size: clamp(1.5rem, 3vw, 2rem);
             font-style: italic;
-            color: var(--text);
             line-height: 1.5;
             text-align: center;
-            transition: color 0.3s;
+        }
+
+        .dark-section .tagline p {
+            color: #e0e0e0;
+        }
+
+        .light-section .tagline p {
+            color: #1a1a1a;
         }
 
         section {
@@ -199,43 +178,27 @@
             text-decoration-color: var(--link-underline-hover);
         }
 
-        .examples {
-            background: var(--accent-bg);
+        .examples-section {
             padding: 48px 24px;
-            margin: 28px 0;
-            max-width: none;
-            transition: background 0.3s, border-radius 0.3s, max-width 0.3s;
         }
 
-        [data-theme="dark"] .examples {
-            max-width: 720px;
-            margin: 28px auto;
-            border-radius: 2px;
-        }
-
-        .examples-inner {
-            max-width: 720px;
-            margin: 0 auto;
-        }
-
-        .examples h2 {
-            color: var(--accent-heading);
-        }
-
-        .examples ul {
+        .examples-list {
             list-style: none;
             padding: 0;
             display: grid;
             gap: 16px;
         }
 
-        .examples li {
+        .examples-list li {
             padding: 16px 20px;
-            background: var(--accent-card-bg);
-            border-left: 3px solid var(--accent-border);
-            color: var(--accent-text);
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 3px solid rgba(255, 255, 255, 0.3);
             border-radius: 2px;
-            transition: background 0.3s, border-color 0.3s, color 0.3s;
+        }
+
+        .light-section .examples-list li {
+            background: rgba(0, 0, 0, 0.03);
+            border-left-color: rgba(0, 0, 0, 0.2);
         }
 
         .outcomes {
@@ -392,16 +355,30 @@
         }
 
         .light-section .pricing {
-            background: #0a0a0a;
+            background: #f0f0f0;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .light-section .pricing-tier {
+            background: #fff;
+            padding: 24px;
+            border-radius: 2px;
         }
 
         .light-section .pricing h3,
         .light-section .price {
-            color: #fff;
+            color: #0a0a0a;
         }
 
         .light-section .price-detail {
-            color: rgba(255,255,255,0.85);
+            color: #1a1a1a;
+            margin-bottom: 0;
+        }
+
+        .light-section .pricing-tier + .pricing-tier {
+            margin-top: 16px;
+            padding-top: 24px;
+            border-top: none;
         }
 
         /* Dark section - always dark mode */
@@ -466,10 +443,6 @@
                 padding: 32px 24px;
             }
 
-            [data-theme="dark"] .hero-overlay {
-                padding: 60px 24px 40px;
-            }
-
             .hero-subtitle {
                 font-size: 0.8rem;
             }
@@ -486,13 +459,6 @@
 
             .pricing {
                 padding: 32px 24px;
-            }
-
-            .theme-toggle {
-                top: 16px;
-                right: 16px;
-                padding: 8px 12px;
-                font-size: 0.75rem;
             }
         }
 
@@ -514,8 +480,6 @@
     </style>
 </head>
 <body>
-    <button class="theme-toggle" onclick="toggleTheme()">Dark mode</button>
-
     <header class="hero">
         <img src="hero.jpg" alt="Building engulfed in flames at night">
         <div class="hero-overlay">
@@ -524,40 +488,44 @@
         </div>
     </header>
 
+    <div class="dark-section">
     <div class="tagline">
         <p>Bring your most expensive problem. Leave with clarity, energy, and a way forward.</p>
     </div>
 
-    <!-- 1. Let them self-identify -->
+    <!-- 1. Let them self-identify (DARK) -->
     <section>
         <h2>Who is this for?</h2>
         <p>You're high-functioning, creative, and entrepreneurial. You think from left field. You live for transformation. You've had sudden breakthroughs before, and you know it can happen again. You believe it's possible to shift your perspective in a weekend.</p>
         <p>You are confident in your capacity to take action in your personal life or work. However, right now you're stuck. It's frustrating. Annoying. It drags at your attention. Sometimes it keeps you awake at night. You know that if you can move through it, life will feel different. You'll be free to act, to create, and to lead.</p>
     </section>
+    </div><!-- end dark-section for tagline + who is this for -->
 
-    <!-- 2. Define the concept -->
+    <!-- 2. Define the concept (LIGHT - first turn) -->
+    <div class="light-section">
     <section>
         <h2>What's an expensive problem?</h2>
         <p>It's a problem that is costing you dearly. So much that you lose focus, or can't sleep at night. The cost may be money, or something you can't put a number on—time, peace of mind, energy. Whatever it is, the price is too high to ignore.</p>
         <p>You'll bring your expensive problem to a small group of peers and work on it together.</p>
     </section>
-
-    <!-- 3. Make it concrete -->
-    <div class="examples">
-        <div class="examples-inner">
-            <h2>Example Scenarios</h2>
-            <ul>
-                <li>You're burning out but the company can't afford for you to slow down.</li>
-                <li>Your company has hit a ceiling. You know the next stage of growth requires a fundamentally different strategy, or a different version of you as a leader. You can't see which, or what that looks like.</li>
-                <li>You've built a company where the product is you. You'd like to exit while the company continues to thrive, but you're afraid that if you leave, the whole thing will collapse.</li>
-                <li>You and your cofounder are close friends and strong partners. However, you have a conflict with them that feels significant and you can't find a way to talk with them about it.</li>
-                <li>The company is succeeding, but you're not sure you're the right person to lead it anymore. You can't tell if that's clarity or fear.</li>
-                <li>You're facing a decision between paths that can't be combined. Each one means giving up something real. But staying put isn't an option either.</li>
-            </ul>
-        </div>
     </div>
 
-    <!-- 4. The transformation -->
+    <!-- 3. Make it concrete (DARK) -->
+    <div class="dark-section">
+    <section class="examples-section">
+        <h2>Example Scenarios</h2>
+        <ul class="examples-list">
+            <li>You're burning out but the company can't afford for you to slow down.</li>
+            <li>Your company has hit a ceiling. You know the next stage of growth requires a fundamentally different strategy, or a different version of you as a leader. You can't see which, or what that looks like.</li>
+            <li>You've built a company where the product is you. You'd like to exit while the company continues to thrive, but you're afraid that if you leave, the whole thing will collapse.</li>
+            <li>You and your cofounder are close friends and strong partners. However, you have a conflict with them that feels significant and you can't find a way to talk with them about it.</li>
+            <li>The company is succeeding, but you're not sure you're the right person to lead it anymore. You can't tell if that's clarity or fear.</li>
+            <li>You're facing a decision between paths that can't be combined. Each one means giving up something real. But staying put isn't an option either.</li>
+        </ul>
+    </section>
+    </div>
+
+    <!-- 4. The transformation (LIGHT) -->
     <div class="light-section">
     <section>
         <h2>What you'll walk away with</h2>
@@ -572,7 +540,7 @@
     </section>
     </div>
 
-    <!-- 5. Logistics -->
+    <!-- 5. Logistics (DARK) -->
     <div class="dark-section">
     <section>
         <h2>How the weekend works</h2>
@@ -582,7 +550,7 @@
     </section>
     </div>
 
-    <!-- 6. Credibility -->
+    <!-- 6. Credibility (LIGHT) -->
     <div class="light-section">
     <section>
         <h2>Who we are</h2>
@@ -600,7 +568,7 @@
     </section>
     </div>
 
-    <!-- 7. Address concern -->
+    <!-- 7. Address concern (DARK) -->
     <div class="dark-section">
     <section>
         <h2>Confidentiality</h2>
@@ -608,8 +576,8 @@
     </section>
     </div>
 
-    <!-- 8. Price -->
-    <div class="dark-section">
+    <!-- 8. Price (LIGHT) -->
+    <div class="light-section">
     <section>
         <h2>Cost</h2>
         <div class="pricing">
@@ -627,7 +595,7 @@
     </section>
     </div>
 
-    <!-- 9. CTA -->
+    <!-- 9. CTA (DARK) -->
     <div class="dark-section">
     <section class="cta">
         <h2>Apply</h2>
@@ -636,27 +604,5 @@
     </section>
     </div>
 
-    <script>
-        function toggleTheme() {
-            const html = document.documentElement;
-            const btn = document.querySelector('.theme-toggle');
-            if (html.getAttribute('data-theme') === 'light') {
-                html.setAttribute('data-theme', 'dark');
-                btn.textContent = 'Light mode';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                html.setAttribute('data-theme', 'light');
-                btn.textContent = 'Dark mode';
-                localStorage.setItem('theme', 'light');
-            }
-        }
-
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? 'Light mode' : 'Dark mode';
-        }
-    </script>
 </body>
 </html>
