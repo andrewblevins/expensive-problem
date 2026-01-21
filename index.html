@@ -218,26 +218,13 @@
         }
 
         .examples {
-            background: var(--accent-bg);
-            padding: 48px 24px;
-            margin: 28px 0;
-            max-width: none;
-            transition: background 0.3s, border-radius 0.3s, max-width 0.3s;
-        }
-
-        [data-theme="dark"] .examples {
-            max-width: 720px;
-            margin: 28px auto;
-            border-radius: 2px;
-        }
-
-        .examples-inner {
+            padding: 28px 24px;
             max-width: 720px;
             margin: 0 auto;
         }
 
         .examples h2 {
-            color: var(--accent-heading);
+            color: var(--heading);
         }
 
         .examples ul {
@@ -249,11 +236,20 @@
 
         .examples li {
             padding: 16px 20px;
-            background: var(--accent-card-bg);
-            border-left: 3px solid var(--accent-border);
-            color: var(--accent-text);
+            position: relative;
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 3px solid rgba(255, 255, 255, 0.3);
             border-radius: 2px;
-            transition: background 0.3s, border-color 0.3s, color 0.3s;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        /* Transition box styling as background changes */
+        .gradient-zone .examples li {
+            --box-bg: rgba(255, 255, 255, 0.05);
+            --box-border: rgba(255, 255, 255, 0.3);
+            background: var(--box-bg);
+            border-left-color: var(--box-border);
         }
 
         .outcomes {
@@ -280,6 +276,39 @@
 
         .outcomes li:last-child {
             margin-bottom: 0;
+        }
+
+        /* Light section with noise texture */
+        .light-section {
+            background-color: #f5f5f5;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-blend-mode: overlay;
+        }
+
+        .light-section,
+        .light-section section,
+        .light-section .cta {
+            --bg: #f5f5f5;
+            --text: #1a1a1a;
+            --heading: #0a0a0a;
+            --link: #0a0a0a;
+            --link-underline: rgba(0,0,0,0.3);
+            --link-underline-hover: rgba(0,0,0,0.8);
+            --btn-bg: #0a0a0a;
+            --btn-text: #fff;
+            --btn-hover: #333;
+            --outcomes-bullet: #0a0a0a;
+            --accent-bg: #0a0a0a;
+            --accent-heading: #fff;
+            --accent-text: rgba(255,255,255,0.85);
+            --accent-card-bg: rgba(255,255,255,0.05);
+            --accent-border: rgba(255,255,255,0.3);
+        }
+
+        /* The turn: gradient transition between dark and light sections */
+        .the-turn {
+            height: 200px;
+            background: linear-gradient(to bottom, #0a0a0a 0%, #f5f5f5 100%);
         }
 
         .bios {
@@ -464,19 +493,22 @@
     </section>
 
     <!-- 3. Make it concrete -->
-    <div class="examples">
-        <div class="examples-inner">
-            <h2>Example Scenarios</h2>
-            <ul>
-                <li>You're burning out but the company can't afford for you to slow down.</li>
-                <li>Your company has hit a ceiling. You know the next stage of growth requires a fundamentally different strategy, or a different version of you as a leader. You can't see which, or what that looks like.</li>
-                <li>You've built a company where the product is you. You'd like to exit while the company continues to thrive, but you're afraid that if you leave, the whole thing will collapse.</li>
-                <li>You and your cofounder are close friends and strong partners. However, you have a conflict with them that feels significant and you can't find a way to talk with them about it.</li>
-                <li>The company is succeeding, but you're not sure you're the right person to lead it anymore. You can't tell if that's clarity or fear.</li>
-                <li>You're facing a decision between paths that can't be combined. Each one means giving up something real. But staying put isn't an option either.</li>
-            </ul>
-        </div>
-    </div>
+    <section class="examples">
+        <h2>Example Scenarios</h2>
+        <ul>
+            <li>You're burning out but the company can't afford for you to slow down.</li>
+            <li>Your company has hit a ceiling. You know the next stage of growth requires a fundamentally different strategy, or a different version of you as a leader. You can't see which, or what that looks like.</li>
+            <li>You've built a company where the product is you. You'd like to exit while the company continues to thrive, but you're afraid that if you leave, the whole thing will collapse.</li>
+            <li>You and your cofounder are close friends and strong partners. However, you have a conflict with them that feels significant and you can't find a way to talk with them about it.</li>
+            <li>The company is succeeding, but you're not sure you're the right person to lead it anymore. You can't tell if that's clarity or fear.</li>
+            <li>You're facing a decision between paths that can't be combined. Each one means giving up something real. But staying put isn't an option either.</li>
+        </ul>
+    </section>
+
+    <!-- The turn: gradient transition between sections -->
+    <div class="the-turn"></div>
+
+    <div class="light-section">
 
     <!-- 4. The transformation -->
     <section>
@@ -544,6 +576,8 @@
         <p>If you're interested, tell us about yourself and your expensive problem. We'll follow up if it seems like a good fit.</p>
         <a href="https://tally.so/r/eqrBBJ" class="btn">Fill out the form</a>
     </section>
+
+    </div>
 
     <script>
         window.addEventListener('load', function() {
