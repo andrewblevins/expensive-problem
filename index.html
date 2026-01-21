@@ -362,6 +362,99 @@
             text-decoration: none;
         }
 
+        /* Light section - always light mode from "What you'll walk away with" onwards */
+        .light-section {
+            background: #fafafa;
+            color: #1a1a1a;
+        }
+
+        .light-section h2,
+        .light-section h3 {
+            color: #0a0a0a;
+        }
+
+        .light-section p,
+        .light-section li {
+            color: #1a1a1a;
+        }
+
+        .light-section a {
+            color: #0a0a0a;
+            text-decoration-color: rgba(0,0,0,0.3);
+        }
+
+        .light-section a:hover {
+            text-decoration-color: rgba(0,0,0,0.8);
+        }
+
+        .light-section .outcomes li::before {
+            color: #0a0a0a;
+        }
+
+        .light-section .pricing {
+            background: #0a0a0a;
+        }
+
+        .light-section .pricing h3,
+        .light-section .price {
+            color: #fff;
+        }
+
+        .light-section .price-detail {
+            color: rgba(255,255,255,0.85);
+        }
+
+        /* Dark section - always dark mode */
+        .dark-section {
+            background: #0a0a0a;
+            color: #e0e0e0;
+        }
+
+        .dark-section h2,
+        .dark-section h3 {
+            color: #fff;
+        }
+
+        .dark-section p,
+        .dark-section li {
+            color: #e0e0e0;
+        }
+
+        .dark-section a {
+            color: #fff;
+            text-decoration-color: rgba(255,255,255,0.3);
+        }
+
+        .dark-section a:hover {
+            text-decoration-color: rgba(255,255,255,0.8);
+        }
+
+        .dark-section .btn {
+            background: #fff;
+            color: #0a0a0a;
+        }
+
+        .dark-section .btn:hover {
+            background: #e0e0e0;
+        }
+
+        .dark-section .pricing {
+            background: #f0f0f0;
+        }
+
+        .dark-section .pricing h3,
+        .dark-section .price {
+            color: #0a0a0a;
+        }
+
+        .dark-section .price-detail {
+            color: #1a1a1a;
+        }
+
+        .dark-section .pricing-tier {
+            border-left-color: rgba(0,0,0,0.2);
+        }
+
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             .hero {
@@ -465,6 +558,7 @@
     </div>
 
     <!-- 4. The transformation -->
+    <div class="light-section">
     <section>
         <h2>What you'll walk away with</h2>
         <p>On Sunday evening, you will have:</p>
@@ -476,16 +570,20 @@
         </ul>
         <p>This is not about abstract ideas. It's about dismantling what's keeping you stuck, and being inspired to take practical action on the other side.</p>
     </section>
+    </div>
 
     <!-- 5. Logistics -->
+    <div class="dark-section">
     <section>
         <h2>How the weekend works</h2>
         <p>The workshop takes place <strong>July 31st–August 1st, 2026</strong> in New York City. Over two days, you'll participate in four sessions in a peer group of no more than twenty participants.</p>
         <p>You'll engage in intensive group exploration, learn frameworks you can apply immediately, and work directly on your specific problem. The process is rigorous and sometimes surprising. Spacious breaks are built in so that insights land and conversations deepen.</p>
         <p>You will leave not only with clarity on your own problem, but with new ways of seeing that extend far beyond it.</p>
     </section>
+    </div>
 
     <!-- 6. Credibility -->
+    <div class="light-section">
     <section>
         <h2>Who we are</h2>
         <p>We guide leaders and creators through turning points in their lives and work.</p>
@@ -500,14 +598,18 @@
             </div>
         </div>
     </section>
+    </div>
 
     <!-- 7. Address concern -->
+    <div class="dark-section">
     <section>
         <h2>Confidentiality</h2>
         <p>The workshop is a safe place to explore difficult, painful, or sensitive situations. At the outset, you'll sign a binding agreement not to publicly share other participants' problems without their consent.</p>
     </section>
+    </div>
 
     <!-- 8. Price -->
+    <div class="dark-section">
     <section>
         <h2>Cost</h2>
         <div class="pricing">
@@ -523,13 +625,16 @@
             </div>
         </div>
     </section>
+    </div>
 
     <!-- 9. CTA -->
+    <div class="dark-section">
     <section class="cta">
         <h2>Apply</h2>
         <p>If you're interested, tell us about yourself and your expensive problem. We'll follow up if it seems like a good fit.</p>
         <a href="https://tally.so/r/eqrBBJ" class="btn">Fill out the form</a>
     </section>
+    </div>
 
     <script>
         function toggleTheme() {
