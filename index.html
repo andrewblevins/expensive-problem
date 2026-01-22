@@ -46,7 +46,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 80px 40px 48px;
+            padding: 80px 40px 48px 60px;
             background: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 40%, transparent 100%);
         }
 
@@ -98,9 +98,13 @@
         }
 
         section {
-            padding: 28px 24px;
+            padding: 16px 24px 8px;
             max-width: 720px;
             margin: 0 auto;
+        }
+
+        .first-section {
+            padding-top: 16px;
         }
 
         h2 {
@@ -126,7 +130,7 @@
         }
 
         .examples-section {
-            padding: 48px 24px 68px 24px;
+            padding: 28px 24px 68px 24px;
         }
 
         .examples-list {
@@ -160,9 +164,10 @@
         }
 
         .outcomes li::before {
-            content: '—';
+            content: '✧';
             position: absolute;
             left: 0;
+            font-family: Georgia, serif;
         }
 
         .outcomes li:last-child {
@@ -263,8 +268,13 @@
             position: relative;
         }
 
-        /* Soft smudge at the top edge */
-        .light-section::before {
+        .light-section section {
+            padding-top: 60px;
+            padding-bottom: 20px;
+        }
+
+        /* Andrew's fade - Soft smudge at the top edge */
+        /* .light-section::before {
             content: '';
             position: absolute;
             top: -40px;
@@ -273,6 +283,19 @@
             height: 80px;
             background: linear-gradient(to bottom, transparent 0%, #f4ebe1 100%);
             pointer-events: none;
+        } */
+
+        /* Charlie's fade - cream fades up into the dark section */
+        .light-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to top, #f4ebe1 15%, transparent 100%);
+            pointer-events: none;
+            z-index: -1;
         }
 
         /* Paper texture - subtle warm grain */
@@ -364,6 +387,9 @@
             position: relative;
         }
 
+        .dark-section > section {
+            padding-bottom: 60px;
+        }
 
         .dark-section h2,
         .dark-section h3 {
@@ -460,10 +486,10 @@
         </header>
 
         <div class="tagline">
-            <p>Bring your most expensive problem. Leave with clarity, energy, and&nbsp;a&nbsp;way&nbsp;forward.</p>
+            <p>Bring your most expensive problem.<br>Leave with clarity, energy, and&nbsp;a&nbsp;way&nbsp;forward.</p>
         </div>
 
-        <section>
+        <section class="first-section">
             <h2>Who is this for?</h2>
             <p>You're high-functioning, creative, and entrepreneurial. You think from left field. You live for transformation. You've had sudden breakthroughs before, and you know it can happen again. You believe it's possible to shift your perspective in a weekend.</p>
             <p>You are confident in your capacity to take action in your personal life or work. However, right now you're stuck. It's frustrating. Annoying. It drags at your attention. Sometimes it keeps you awake at night. You know that if you can move through it, life will feel different. You'll be free to act, to create, and to lead.</p>
@@ -509,7 +535,7 @@
             <div class="bios">
                 <div class="bio">
                     <img src="charlie-new.png" alt="Charlie">
-                    <p>Charlie <a href="https://charlieawbery.substack.com/p/advisory-relationships">partners with</a> tech and AI founders navigating high-stakes complexity.</p>
+                    <p>Charlie <a href="https://charlieawbery.substack.com/p/advisory-relationships">partners with</a> tech and AI founders navigating high-stakes complexity, helping them lead with clarity and presence.</p>
                 </div>
                 <div class="bio">
                     <img src="andrew-cropped.png" alt="Andrew">
