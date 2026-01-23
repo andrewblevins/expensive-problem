@@ -1,84 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expensive Problem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: 'Instrument Sans';
-            src: url('instrument-sans-400.ttf') format('truetype');
-            font-weight: 400;
-            font-style: normal;
-            font-display: block;
-        }
-
-        @font-face {
-            font-family: 'Instrument Sans';
-            src: url('instrument-sans-500.ttf') format('truetype');
-            font-weight: 500;
-            font-style: normal;
-            font-display: block;
-        }
-
-        @font-face {
-            font-family: 'Instrument Serif';
-            src: url('instrument-serif-regular.ttf') format('truetype');
-            font-weight: 400;
-            font-style: normal;
-            font-display: block;
-        }
-
-        @font-face {
-            font-family: 'Instrument Serif';
-            src: url('instrument-serif-italic.ttf') format('truetype');
-            font-weight: 400;
-            font-style: italic;
-            font-display: block;
-        }
-
-        :root {
-            --bg: #fafafa;
-            --text: #1a1a1a;
-            --text-secondary: #1a1a1a;
-            --heading: #0a0a0a;
-            --link: #0a0a0a;
-            --link-underline: rgba(0,0,0,0.3);
-            --link-underline-hover: rgba(0,0,0,0.8);
-            --btn-bg: #0a0a0a;
-            --btn-text: #fff;
-            --btn-hover: #333;
-            --hero-overlay: #0a0a0a;
-            --hero-gradient: none;
-            --outcomes-bullet: #0a0a0a;
-            --accent-bg: #0a0a0a;
-            --accent-heading: #fff;
-            --accent-text: rgba(255,255,255,0.85);
-            --accent-card-bg: rgba(255,255,255,0.05);
-            --accent-border: rgba(255,255,255,0.3);
-        }
-
-        [data-theme="dark"] {
-            --bg: #0a0a0a;
-            --text: #e0e0e0;
-            --text-secondary: #c0c0c0;
-            --heading: #fff;
-            --link: #fff;
-            --link-underline: rgba(255,255,255,0.3);
-            --link-underline-hover: rgba(255,255,255,0.8);
-            --btn-bg: #fff;
-            --btn-text: #0a0a0a;
-            --btn-hover: #e0e0e0;
-            --hero-overlay: transparent;
-            --hero-gradient: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 40%, transparent 100%);
-            --outcomes-bullet: #fff;
-            --accent-bg: #f0f0f0;
-            --accent-heading: #0a0a0a;
-            --accent-text: #1a1a1a;
-            --accent-card-bg: rgba(0,0,0,0.03);
-            --accent-border: rgba(0,0,0,0.2);
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -91,19 +20,12 @@
 
         body {
             font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
+            background: #f4ebe1;
+            color: #1a1a1a;
             line-height: 1.7;
             font-size: 19px;
             letter-spacing: 0.01em;
-            opacity: 0;
-            transition: opacity 0.3s ease;
         }
-
-        body.loaded {
-            opacity: 1;
-        }
-
 
         .hero {
             position: relative;
@@ -124,14 +46,8 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 48px 40px;
-            background: var(--hero-overlay);
-            transition: background 0.3s;
-        }
-
-        [data-theme="dark"] .hero-overlay {
-            padding: 80px 40px 60px;
-            background: var(--hero-gradient);
+            padding: 80px 40px 48px 60px;
+            background: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 40%, transparent 100%);
         }
 
         .hero-title {
@@ -153,10 +69,6 @@
             margin-top: 12px;
         }
 
-        .nowrap {
-            white-space: nowrap;
-        }
-
         .container {
             max-width: 720px;
             margin: 0 auto;
@@ -173,16 +85,26 @@
             font-family: 'Instrument Serif', Georgia, serif;
             font-size: clamp(1.5rem, 3vw, 2rem);
             font-style: italic;
-            color: var(--text);
             line-height: 1.5;
             text-align: center;
-            transition: color 0.3s;
+        }
+
+        .dark-section .tagline p {
+            color: #e0e0e0;
+        }
+
+        .light-section .tagline p {
+            color: #1a1a1a;
         }
 
         section {
-            padding: 28px 24px;
+            padding: 16px 24px 8px;
             max-width: 720px;
             margin: 0 auto;
+        }
+
+        .first-section {
+            padding-top: 16px;
         }
 
         h2 {
@@ -190,15 +112,11 @@
             font-size: 2.4rem;
             font-weight: 400;
             margin-bottom: 24px;
-            color: var(--heading);
             letter-spacing: 0.01em;
-            transition: color 0.3s;
         }
 
         p {
             margin-bottom: 20px;
-            color: var(--text);
-            transition: color 0.3s;
         }
 
         p:last-child {
@@ -206,54 +124,31 @@
         }
 
         a {
-            color: var(--link);
             text-decoration: underline;
-            text-decoration-color: var(--link-underline);
             text-underline-offset: 2px;
-            transition: text-decoration-color 0.2s, color 0.3s;
+            transition: text-decoration-color 0.2s;
         }
 
-        a:hover {
-            text-decoration-color: var(--link-underline-hover);
+        .examples-section {
+            padding: 28px 24px 68px 24px;
         }
 
-        .examples {
-            background: var(--accent-bg);
-            padding: 48px 24px;
-            margin: 28px 0;
-            max-width: none;
-            transition: background 0.3s, border-radius 0.3s, max-width 0.3s;
-        }
-
-        [data-theme="dark"] .examples {
-            max-width: 720px;
-            margin: 28px auto;
-            border-radius: 2px;
-        }
-
-        .examples-inner {
-            max-width: 720px;
-            margin: 0 auto;
-        }
-
-        .examples h2 {
-            color: var(--accent-heading);
-        }
-
-        .examples ul {
+        .examples-list {
             list-style: none;
             padding: 0;
             display: grid;
             gap: 16px;
         }
 
-        .examples li {
+        .examples-list li {
             padding: 16px 20px;
-            background: var(--accent-card-bg);
-            border-left: 3px solid var(--accent-border);
-            color: var(--accent-text);
+            background: linear-gradient(135deg, #1f1f1f 0%, #1a1a1a 100%);
+            border-left: 3px solid rgba(255, 255, 255, 0.3);
             border-radius: 2px;
-            transition: background 0.3s, border-color 0.3s, color 0.3s;
+            box-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.4),
+                0 1px 2px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.03);
         }
 
         .outcomes {
@@ -266,16 +161,13 @@
             padding-left: 28px;
             margin-bottom: 14px;
             position: relative;
-            color: var(--text);
-            transition: color 0.3s;
         }
 
         .outcomes li::before {
-            content: '—';
+            content: '✧';
             position: absolute;
             left: 0;
-            color: var(--outcomes-bullet);
-            transition: color 0.3s;
+            font-family: Georgia, serif;
         }
 
         .outcomes li:last-child {
@@ -306,48 +198,36 @@
         }
 
         .pricing {
-            background: var(--accent-bg);
-            border-radius: 2px;
-            padding: 48px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
             margin: 40px 0;
-            transition: background 0.3s;
+        }
+
+        .pricing-tier {
+            padding: 40px 32px;
+            border-radius: 2px;
         }
 
         .pricing h3 {
             font-family: 'Instrument Serif', Georgia, serif;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 400;
-            margin-bottom: 16px;
-            color: var(--accent-heading);
+            margin-bottom: 20px;
             letter-spacing: 0.02em;
-            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .price {
             font-size: 2.5rem;
             font-weight: 500;
-            color: var(--accent-heading);
-            margin-bottom: 8px;
-            transition: color 0.3s;
+            margin-bottom: 16px;
         }
 
         .price-detail {
-            color: var(--accent-text);
             font-size: 0.95rem;
-            margin-bottom: 0;
-            transition: color 0.3s;
-        }
-
-        .pricing-tier {
-            padding: 24px;
-            background: var(--accent-card-bg);
-            border-left: 3px solid var(--accent-border);
-            border-radius: 2px;
-        }
-
-        .pricing-tier + .pricing-tier {
-            margin-top: 24px;
-            transition: border-color 0.3s;
+            line-height: 1.6;
         }
 
         .cta {
@@ -364,14 +244,11 @@
 
         .cta p {
             font-size: 1.1rem;
-            color: var(--text);
             margin-bottom: 28px;
         }
 
         .btn {
             display: inline-block;
-            background: var(--btn-bg);
-            color: var(--btn-text);
             padding: 16px 36px;
             border-radius: 2px;
             text-decoration: none;
@@ -381,8 +258,169 @@
         }
 
         .btn:hover {
-            background: var(--btn-hover);
             text-decoration: none;
+        }
+
+        /* Light section - always light mode from "What you'll walk away with" onwards */
+        .light-section {
+            background: #f4ebe1;
+            color: #1a1a1a;
+            position: relative;
+        }
+
+        .light-section section {
+            padding-top: 60px;
+            padding-bottom: 20px;
+        }
+
+        /* Andrew's fade - Soft smudge at the top edge */
+        /* .light-section::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to bottom, transparent 0%, #f4ebe1 100%);
+            pointer-events: none;
+        } */
+
+        /* Charlie's fade - cream fades up into the dark section */
+        .light-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to top, #f4ebe1 15%, transparent 100%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Paper texture - subtle warm grain */
+        .light-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.035;
+            pointer-events: none;
+            background:
+                repeating-radial-gradient(circle at 17% 32%, rgba(139,119,101,0.08) 0px, transparent 1px),
+                repeating-radial-gradient(circle at 83% 67%, rgba(139,119,101,0.08) 0px, transparent 1px),
+                repeating-radial-gradient(circle at 31% 78%, rgba(139,119,101,0.06) 0px, transparent 1px),
+                repeating-radial-gradient(circle at 69% 21%, rgba(139,119,101,0.06) 0px, transparent 1px);
+            background-size: 3px 3px, 4px 4px, 5px 5px, 6px 6px;
+        }
+
+        .light-section h2,
+        .light-section h3 {
+            color: #0a0a0a;
+        }
+
+        .light-section p,
+        .light-section li {
+            color: #1a1a1a;
+        }
+
+        .light-section a {
+            color: #0a0a0a;
+            text-decoration-color: rgba(0,0,0,0.3);
+        }
+
+        .light-section a:hover {
+            text-decoration-color: rgba(0,0,0,0.8);
+        }
+
+        .light-section .outcomes li::before {
+            color: #0a0a0a;
+        }
+
+        .light-section .btn {
+            background: #0a0a0a;
+            color: #fff;
+        }
+
+        .light-section .btn:hover {
+            background: #333;
+        }
+
+        .light-section .pricing-tier {
+            background: #f0f0f0;
+            border-left: 3px solid rgba(139, 119, 101, 0.35);
+        }
+
+        .light-section .pricing h3 {
+            color: #666;
+        }
+
+        .light-section .price {
+            color: #0a0a0a;
+        }
+
+        .light-section .price-detail {
+            color: #333;
+        }
+
+        .light-section .pricing-tier.featured {
+            background: #333;
+            border-left: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .light-section .pricing-tier.featured h3 {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .light-section .pricing-tier.featured .price {
+            color: #fff;
+        }
+
+        .light-section .pricing-tier.featured .price-detail {
+            color: rgba(255,255,255,0.85);
+        }
+
+
+        /* Dark section - always dark mode */
+        .dark-section {
+            background: #0a0a0a;
+            color: #e0e0e0;
+            position: relative;
+        }
+
+        .dark-section > section {
+            padding-bottom: 60px;
+        }
+
+        .dark-section h2,
+        .dark-section h3 {
+            color: #fff;
+        }
+
+        .danger {
+            color: #c41e1e;
+        }
+
+        .dark-section p,
+        .dark-section li {
+            color: #e0e0e0;
+        }
+
+        .dark-section a {
+            color: #fff;
+            text-decoration-color: rgba(255,255,255,0.3);
+        }
+
+        .dark-section a:hover {
+            text-decoration-color: rgba(255,255,255,0.8);
+        }
+
+        .dark-section .btn {
+            background: #fff;
+            color: #0a0a0a;
+        }
+
+        .dark-section .btn:hover {
+            background: #e0e0e0;
         }
 
         /* Mobile responsiveness */
@@ -393,11 +431,7 @@
             }
 
             .hero-overlay {
-                padding: 32px 24px;
-            }
-
-            [data-theme="dark"] .hero-overlay {
-                padding: 60px 24px 40px;
+                padding: 60px 24px 32px;
             }
 
             .hero-subtitle {
@@ -415,6 +449,10 @@
             }
 
             .pricing {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-tier {
                 padding: 32px 24px;
             }
         }
@@ -437,37 +475,35 @@
     </style>
 </head>
 <body>
-    <header class="hero">
-        <img src="hero.jpg" alt="Building engulfed in flames at night">
-        <div class="hero-overlay">
-            <h1 class="hero-title">Expensive Problem</h1>
-            <p class="hero-subtitle">A weekend workshop · <span class="nowrap">July 31–August 1, 2026 · NYC</span></p>
+    <!-- ==================== DARK SECTION: The Problem Space ==================== -->
+    <div class="dark-section">
+        <header class="hero">
+            <img src="hero.jpg" alt="Building engulfed in flames at night">
+            <div class="hero-overlay">
+                <h1 class="hero-title">Expensive Problem</h1>
+                <p class="hero-subtitle">A weekend workshop · July 31–August 1, 2026 · NYC</p>
+            </div>
+        </header>
+
+        <div class="tagline">
+            <p>Bring your most expensive problem.<br>Leave with clarity, energy, and&nbsp;a&nbsp;way&nbsp;forward.</p>
         </div>
-    </header>
 
-    <div class="tagline">
-        <p>Bring your most expensive problem. Leave with clarity, energy, and a way forward.</p>
-    </div>
+        <section class="first-section">
+            <h2>Who is this for?</h2>
+            <p>You're high-functioning, creative, and entrepreneurial. You think from left field. You live for transformation. You've had sudden breakthroughs before, and you know it can happen again. You believe it's possible to shift your perspective in a weekend.</p>
+            <p>You are confident in your capacity to take action in your personal life or work. However, right now you're stuck. It's frustrating. Annoying. It drags at your attention. You can't quite put it down. You know that if you can move through it, life will feel different. You'll be free to act, to create, and to lead.</p>
+        </section>
 
-    <!-- 1. Let them self-identify -->
-    <section>
-        <h2>Who is this for?</h2>
-        <p>You're high-functioning, creative, and entrepreneurial. You think from left field. You live for transformation. You've had sudden breakthroughs before, and you know it can happen again. You believe it's possible to shift your perspective in a weekend.</p>
-        <p>You are confident in your capacity to take action in your personal life or work. However, right now you're stuck. It's frustrating. Annoying. It drags at your attention. You can't quite put it down. You know that if you can move through it, life will feel different. You'll be free to act, to create, and to lead.</p>
-    </section>
+        <section>
+            <h2>What's an <span class="danger">expensive problem?</span></h2>
+            <p>It's a problem that is costing you dearly. So much that you lose focus, or can't sleep at night. The cost may be money, or something you can't put a number on—time, peace of mind, energy. Whatever it is, the price is too high to ignore.</p>
+            <p>You'll bring your expensive problem to a small group of peers and work on it together.</p>
+        </section>
 
-    <!-- 2. Define the concept -->
-    <section>
-        <h2>What's an expensive problem?</h2>
-        <p>It's a problem that is costing you dearly. So much that you lose focus, or can't sleep at night. The cost may be money, or something you can't put a number on—time, peace of mind, energy. Whatever it is, the price is too high to ignore.</p>
-        <p>You'll bring your expensive problem to a small group of peers and work on it together.</p>
-    </section>
-
-    <!-- 3. Make it concrete -->
-    <div class="examples">
-        <div class="examples-inner">
+        <section class="examples-section">
             <h2>Example Scenarios</h2>
-            <ul>
+            <ul class="examples-list">
                 <li>You're burning out but the company can't afford for you to slow down.</li>
                 <li>Your company has hit a ceiling. You know the next stage of growth requires a fundamentally different strategy, or a different version of you as a leader. You can't see which, or what that looks like.</li>
                 <li>You've built a company where the product is you. You'd like to exit while the company continues to thrive, but you're afraid that if you leave, the whole thing will collapse.</li>
@@ -475,80 +511,72 @@
                 <li>The company is succeeding, but you're not sure you're the right person to lead it anymore. You can't tell if that's clarity or fear.</li>
                 <li>You're facing a decision between paths that can't be combined. Each one means giving up something real. But staying put isn't an option either.</li>
             </ul>
-        </div>
+        </section>
     </div>
 
-    <!-- 4. The transformation -->
-    <section>
-        <h2>What you'll walk away with</h2>
-        <p>On Sunday evening, you will have:</p>
-        <ul class="outcomes">
-            <li>The ability to see your problem from multiple perspectives—adult developmental psychology, systematization and automation, structural analysis of interactional power, metarationality.</li>
-            <li>A way of seeing your situation that you could not have reached on your own.</li>
-            <li>Clarity of direction and renewed energy.</li>
-            <li>Concrete next steps and the confidence to take them.</li>
-        </ul>
-        <p>This is not about abstract ideas. It's about dismantling what's keeping you stuck, and being inspired to take practical action on the other side.</p>
-    </section>
 
-    <!-- 5. Logistics -->
-    <section>
-        <h2>How the weekend works</h2>
-        <p>The workshop takes place <strong>July 31st–August 1st, 2026</strong> in New York City. Over two days, you'll participate in four sessions in a peer group of no more than twenty participants.</p>
-        <p>You'll engage in intensive group exploration, learn frameworks you can apply immediately, and work directly on your specific problem. The process is rigorous and sometimes surprising. Spacious breaks are built in so that insights land and conversations deepen.</p>
-        <p>You will leave not only with clarity on your own problem, but with new ways of seeing that extend far beyond it.</p>
-    </section>
+    <!-- ==================== LIGHT SECTION: The Resolution Space ==================== -->
+    <div class="light-section">
+        <section>
+            <h2>What you'll walk away with</h2>
+            <p>On Sunday evening, you will have:</p>
+            <ul class="outcomes">
+                <li>The ability to see your problem from multiple perspectives—adult developmental psychology, systematization and automation, structural analysis of interactional power, metarationality.</li>
+                <li>A way of seeing your situation that you could not have reached on your own.</li>
+                <li>Clarity of direction and renewed energy.</li>
+                <li>Concrete next steps and the confidence to take them.</li>
+            </ul>
+            <p>This is not about abstract ideas. It's about dismantling what's keeping you stuck, and being inspired to take practical action on the other side.</p>
+        </section>
 
-    <!-- 6. Credibility -->
-    <section>
-        <h2>Who we are</h2>
-        <p>We guide leaders and creators through turning points in their lives and work.</p>
-        <div class="bios">
-            <div class="bio">
-                <img src="charlie-new.png" alt="Charlie">
-                <p>Charlie <a href="https://charlieawbery.substack.com/p/advisory-relationships">partners with</a> tech and AI founders navigating high-stakes complexity.</p>
+        <section>
+            <h2>Who we are</h2>
+            <p>We guide leaders and creators through turning points in their lives and work.</p>
+            <div class="bios">
+                <div class="bio">
+                    <img src="charlie-new.png" alt="Charlie">
+                    <p>Charlie <a href="https://charlieawbery.substack.com/p/advisory-relationships">partners with</a> tech and AI founders navigating high-stakes complexity, helping them lead with clarity and presence.</p>
+                </div>
+                <div class="bio">
+                    <img src="andrew-cropped.png" alt="Andrew">
+                    <p>Andrew co-creates <a href="https://andrewshadeblevins.com/coaching.html">developmental mentorships</a> with founders, engineers, and designers.</p>
+                </div>
             </div>
-            <div class="bio">
-                <img src="andrew-cropped.png" alt="Andrew">
-                <p>Andrew creates <a href="https://andrewshadeblevins.com/coaching.html">developmental mentorships</a>.</p>
+        </section>
+
+        <section>
+            <h2>How the weekend works</h2>
+            <p>The workshop takes place <strong>July 31st–August 1st, 2026</strong> in New York City. Over two days, you'll participate in four sessions in a peer group of no more than twenty participants.</p>
+            <p>You'll engage in intensive group exploration, learn frameworks you can apply immediately, and work directly on your specific problem. The process is rigorous and sometimes surprising. Spacious breaks are built in so that insights land and conversations deepen.</p>
+            <p>You will leave not only with clarity on your own problem, but with new ways of seeing that extend far beyond it.</p>
+        </section>
+
+        <section>
+            <h2>Confidentiality</h2>
+            <p>The workshop is a safe place to explore difficult, painful, or sensitive situations. At the outset, you'll sign a binding agreement not to publicly share other participants' problems without their consent.</p>
+        </section>
+
+        <section>
+            <h2>Cost</h2>
+            <div class="pricing">
+                <div class="pricing-tier">
+                    <h3>Workshop</h3>
+                    <div class="price">$2,500</div>
+                    <div class="price-detail">The weekend event plus a Zoom call before and after</div>
+                </div>
+                <div class="pricing-tier featured">
+                    <h3>Workshop + Sessions</h3>
+                    <div class="price">$5,000</div>
+                    <div class="price-detail">The weekend event plus three individual sessions with both Charlie &amp; Andrew</div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 7. Address concern -->
-    <section>
-        <h2>Confidentiality</h2>
-        <p>The workshop is a safe place to explore difficult, painful, or sensitive situations. At the outset, you'll sign a binding agreement not to publicly share other participants' problems without their consent.</p>
-    </section>
-
-    <!-- 8. Price -->
-    <section>
-        <h2>Cost</h2>
-        <div class="pricing">
-            <div class="pricing-tier">
-                <h3>Workshop</h3>
-                <div class="price">$2,500</div>
-                <div class="price-detail">The weekend event plus a Zoom call before and after</div>
-            </div>
-            <div class="pricing-tier">
-                <h3>Workshop + Individual Sessions</h3>
-                <div class="price">$5,000</div>
-                <div class="price-detail">The weekend event plus three individual sessions with both Charlie &amp; Andrew</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 9. CTA -->
-    <section class="cta">
-        <h2>Apply</h2>
-        <p>If you're interested, tell us about yourself and your expensive problem. We'll follow up if it seems like a good fit.</p>
-        <a href="https://tally.so/r/eqrBBJ" class="btn">Fill out the form</a>
-    </section>
-
-    <script>
-        window.addEventListener('load', function() {
-            document.body.classList.add('loaded');
-        });
-    </script>
+        <section class="cta">
+            <h2>Apply</h2>
+            <p>If you're interested, tell us about yourself and your expensive problem. We'll follow up if it seems like a good fit.</p>
+            <a href="https://tally.so/r/eqrBBJ" class="btn">Fill out the form</a>
+        </section>
+    </div>
 </body>
 </html>
