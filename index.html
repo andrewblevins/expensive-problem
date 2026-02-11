@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
     <style>
         * {
             margin: 0;
@@ -52,7 +53,7 @@
 
         .hero-title {
             font-family: 'Instrument Serif', Georgia, serif;
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
             font-weight: 400;
             line-height: 1.1;
             max-width: 900px;
@@ -109,10 +110,11 @@
 
         h2 {
             font-family: 'Instrument Serif', Georgia, serif;
-            font-size: 2.4rem;
+            font-size: clamp(1.75rem, 6vw, 2.4rem);
             font-weight: 400;
             margin-bottom: 24px;
             letter-spacing: 0.01em;
+            white-space: nowrap;
         }
 
         p {
@@ -130,25 +132,108 @@
         }
 
         .examples-section {
-            padding: 28px 24px 68px 24px;
+            padding: 16px 24px 80px 24px;
         }
 
-        .examples-list {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            gap: 16px;
+        /* Splide carousel overrides */
+        .examples-section .splide {
+            max-width: 620px;
+            margin: 0 auto;
+            perspective: 1200px;
         }
 
-        .examples-list li {
-            padding: 16px 20px;
-            background: linear-gradient(135deg, #1f1f1f 0%, #1a1a1a 100%);
-            border-left: 3px solid rgba(255, 255, 255, 0.3);
-            border-radius: 2px;
-            box-shadow:
-                0 2px 8px rgba(0, 0, 0, 0.4),
-                0 1px 2px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.03);
+        .carousel-heading {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .examples-section .splide__track {
+            transition: height 0.4s ease !important;
+        }
+
+        .examples-section .splide__slide {
+            color: #e0e0e0;
+            line-height: 1.7;
+            display: flex;
+            align-items: center;
+        }
+
+        .examples-section .splide__slide .slide-inner {
+            font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(1.1rem, 2.2vw, 1.25rem);
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
+            text-align: center;
+            padding: 12px 24px;
+            position: relative;
+            width: 100%;
+            transform-style: preserve-3d;
+            transform: rotateY(8deg);
+            opacity: 0.3;
+            transition: transform 0.55s cubic-bezier(0.25, 1, 0.5, 1),
+                        opacity 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .examples-section .splide__slide.is-active .slide-inner {
+            transform: rotateY(0deg);
+            opacity: 1;
+        }
+
+        .examples-section .splide__slide .slide-inner em {
+            font-style: normal;
+        }
+
+
+        /* Arrows */
+        .examples-section .splide__arrow {
+            background: none;
+            opacity: 1;
+            width: 44px;
+            height: 44px;
+        }
+
+        .examples-section .splide__arrow svg {
+            fill: rgba(255, 255, 255, 0.25);
+            width: 18px;
+            height: 18px;
+            transition: fill 0.2s;
+        }
+
+        .examples-section .splide__arrow:hover svg {
+            fill: rgba(255, 255, 255, 0.7);
+        }
+
+        .examples-section .splide__arrow--prev {
+            left: -3.5em;
+        }
+
+        .examples-section .splide__arrow--next {
+            right: -3.5em;
+        }
+
+        /* Pagination dots */
+        .examples-section .splide__pagination {
+            position: relative;
+            bottom: auto;
+            margin-top: -8px;
+            gap: 6px;
+        }
+
+        .examples-section .splide__pagination__page {
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            opacity: 1;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .examples-section .splide__pagination__page.is-active {
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(1.35);
+        }
+
+        .examples-section .splide__pagination__page:hover {
+            background: rgba(255, 255, 255, 0.4);
         }
 
         .outcomes {
@@ -449,6 +534,18 @@
                 height: 200px;
             }
 
+            .examples-section .splide__arrow--prev {
+                left: -0.2em;
+            }
+
+            .examples-section .splide__arrow--next {
+                right: -0.2em;
+            }
+
+            .examples-section .splide__slide .slide-inner {
+                padding: 4px 8px;
+            }
+
             .pricing {
                 grid-template-columns: 1fr;
             }
@@ -503,15 +600,20 @@
         </section>
 
         <section class="examples-section">
-            <h2>Example Scenarios</h2>
-            <ul class="examples-list">
-                <li>You're burning out but the company can't afford for you to slow down, with no end in sight.</li>
-                <li>Your company has hit a ceiling. You know the next stage of growth requires a fundamentally different strategy, or a different version of you as a leader. You can't see which, or how to get there.</li>
-                <li>You and your cofounder are close friends and strong partners. However, you have a significant conflict that seems impossible to talk about. The longer you wait, the harder the conversation becomes.</li>
-                <li>You're in a good, caring, and serious romantic partnership. They want marriage. You aren't sure. You don't know how to <em>become</em> sure, or whether you'd feel this way with anyone. The uncertainty infects every piece of your life.</li>
-                <li>You are unusually talented, but your skills are hard to make legible. You know you could fit yourself into an established career path. You've done it. It seems like a waste of your specific potential. You don't know whether that's wisdom talking, or fear. You can feel your success in either path dwindling with every month you spend in limbo.</li>
-                <li>You've built a company where the product is you. You'd like to exit while the company continues to thrive, but you're afraid that if you leave, it all falls apart.</li>
-            </ul>
+            <section class="splide" aria-label="Example scenarios">
+                <h2 class="carousel-heading">Example Scenarios</h2>
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide"><div class="slide-inner">You're burning out but the company can't afford for you to slow down, with no end in sight.</div></li>
+                        <li class="splide__slide"><div class="slide-inner">You're in a good, caring, and serious romantic partnership. They want marriage. You aren't sure. You don't know how to <em>become</em> sure, or whether you'd feel this way with anyone. The uncertainty infects every piece of your life.</div></li>
+                        <li class="splide__slide"><div class="slide-inner">Your company has hit a ceiling. You know the next stage of growth requires a fundamentally different strategy, or a different version of you as a leader. You can't see which, or how to get there.</div></li>
+                        <li class="splide__slide"><div class="slide-inner">You and your cofounder are close friends and strong partners. However, you have a significant conflict that seems impossible to talk about. The longer you wait, the harder the conversation becomes.</div></li>
+                        <li class="splide__slide"><div class="slide-inner">You are unusually talented, but your skills are hard to make legible. You could fit yourself into an established career path. It feels like a waste of your potential. You don't know whether that's wisdom or fear. With every month, the window narrows.</div></li>
+                        <li class="splide__slide"><div class="slide-inner">You want a life partner. But you keep attracting the wrong person, and breaking up at the same point. Something is repeating, and you can't see what it is.</div></li>
+                        <li class="splide__slide"><div class="slide-inner">You've built a company where the product is you. You'd like to exit while the company continues to thrive, but you're afraid that if you leave, it all falls apart.</div></li>
+                    </ul>
+                </div>
+            </section>
         </section>
     </div>
 
@@ -548,7 +650,7 @@
         <section>
             <h2>How the weekend works</h2>
             <p>The workshop takes place <strong>July 31st–August 1st, 2026</strong> in New York City. Over two days, you'll participate in four sessions in a peer group of no more than twenty participants.</p>
-            <p>You'll engage in intensive group exploration, learn frameworks you can apply immediately, and work directly on your specific problem. The process is rigorous and sometimes surprising. Spacious breaks are built in so that insights land and conversations deepen.</p>
+            <p>You'll engage in intensive exploration with a small peer group, learn frameworks you can apply immediately, and work directly on your specific problem. The process is rigorous and sometimes surprising. Spacious breaks are built in so that insights land and conversations deepen.</p>
             <p>You will leave not only with clarity on your own problem, but with new ways of seeing that extend far beyond it.</p>
         </section>
 
@@ -579,5 +681,21 @@
             <a href="https://tally.so/r/eqrBBJ" class="btn">Fill out the form</a>
         </section>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script>
+    var splide = new Splide('.splide', {
+        type: 'slide',
+        rewind: true,
+        pagination: true,
+        arrows: true,
+        speed: 500,
+        easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+        autoplay: false,
+        autoHeight: true,
+    });
+
+    splide.mount();
+    </script>
 </body>
 </html>
