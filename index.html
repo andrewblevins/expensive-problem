@@ -308,7 +308,15 @@
         .price {
             font-size: 2.5rem;
             font-weight: 500;
-            margin-bottom: 16px;
+            margin-bottom: 4px;
+        }
+
+        .early-bird {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-style: italic;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            letter-spacing: 0.01em;
         }
 
         .price-detail {
@@ -448,6 +456,10 @@
             color: #333;
         }
 
+        .light-section .early-bird {
+            color: rgba(139, 119, 101, 0.8);
+        }
+
         .light-section .pricing-tier.featured {
             background: #333;
             border-left: 3px solid rgba(255, 255, 255, 0.3);
@@ -463,6 +475,10 @@
 
         .light-section .pricing-tier.featured .price-detail {
             color: rgba(255,255,255,0.85);
+        }
+
+        .light-section .pricing-tier.featured .early-bird {
+            color: rgba(255, 255, 255, 0.45);
         }
 
 
@@ -664,12 +680,14 @@
             <div class="pricing">
                 <div class="pricing-tier">
                     <h3>Workshop</h3>
-                    <div class="price">$2,500</div>
+                    <div class="price">$2,000</div>
+                    <div class="early-bird">Early bird price · through April 1</div>
                     <div class="price-detail">The weekend event plus a Zoom call before and after</div>
                 </div>
                 <div class="pricing-tier featured">
                     <h3>Workshop + Sessions</h3>
-                    <div class="price">$5,000</div>
+                    <div class="price">$4,500</div>
+                    <div class="early-bird">Early bird price · through April 1</div>
                     <div class="price-detail">The weekend event plus three individual sessions with both Charlie &amp; Andrew</div>
                 </div>
             </div>
